@@ -25,6 +25,10 @@ class Settings(BaseSettings):
     )
 
     @property
+    def database_url_str(self) -> str:
+        return str(self.database_url)
+
+    @property
     def is_production(self) -> bool:
         return self.environment == "production"
 
