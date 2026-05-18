@@ -1,3 +1,4 @@
+from datetime import timezone
 from typing import Literal
 from functools import lru_cache
 
@@ -18,6 +19,8 @@ class Settings(BaseSettings):
     cors_origins: list[str] = ["*"]
     openlibrary_base_url: str = "https://openlibrary.org"
     openlibrary_timeout: float = 10.0
+
+    TIMEZONE = timezone.utc
 
     model_config = SettingsConfigDict(
         env_file=".env",
