@@ -1,3 +1,4 @@
+from pathlib import Path
 from datetime import timezone
 from typing import Literal
 from functools import lru_cache
@@ -20,10 +21,10 @@ class Settings(BaseSettings):
     openlibrary_base_url: str = "https://openlibrary.org"
     openlibrary_timeout: float = 10.0
 
-    TIMEZONE = timezone.utc
+    TIMEZONE: timezone = timezone.utc
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=Path(__file__).parents[3] / ".env",
         case_sensitive=False,
     )
 
