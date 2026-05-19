@@ -13,7 +13,7 @@ class BookMapper:
         ShowBook: Pydantic модель для API
     """
     @staticmethod
-    def to_show_book(self, book: Book) -> ShowBook:
+    def to_show_book(book: Book) -> ShowBook:
         return ShowBook(
             book_id=book.book_id,
             title=book.title,
